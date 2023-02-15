@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+import CharacCard from "../Components/CharacCard";
+
 //page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?
 const Characters = ({ apiKey, limit, skip, title }) => {
   const [character, setCharacter] = useState();
@@ -34,29 +36,10 @@ const Characters = ({ apiKey, limit, skip, title }) => {
       {isLoading ? (
         <p>En cours de chargement...</p>
       ) : (
-        <div className="responseData">
-          {/* on map sur le response.data.results */}
-          {character.results.map((elem, index) => {
-            console.log(elem);
-            return (
-              //link vers la page Comics liés au personnage: route /comics/:characterId
-              //requete vers comics/${charId}?apiKey=${apiKey}
-              <Link>
-                <article className="charCard" key={index}>
-                  {elem.thumbnail.path && (
-                    <img
-                      //   pour afficher les imgs, méthodo doc API
-                      src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
-                      alt=""
-                    />
-                  )}
-
-                  <h1>{elem.name}</h1>
-                  <p>{elem.description}</p>
-                </article>
-              </Link>
-            );
-          })}
+        <div>
+          <Link>
+            <CharacCard character={character} />
+          </Link>
         </div>
       )}
     </div>

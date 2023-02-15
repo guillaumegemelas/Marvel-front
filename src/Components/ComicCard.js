@@ -10,7 +10,7 @@ const ComicCard = ({ comics }) => {
               src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
               alt=""
             />
-            <p>{elem.title}</p>
+            <h1>{elem.title}</h1>
             <p>{elem.description}</p>
           </article>
         );
