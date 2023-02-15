@@ -4,7 +4,7 @@ const ComicCard = ({ comics }) => {
       {comics.results.map((elem, index) => {
         console.log(elem);
         return (
-          <article className="comiCard">
+          <article className="comiCard" key={index}>
             <img
               //   pour afficher les imgs, méthodo doc API
               src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}

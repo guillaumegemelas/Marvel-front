@@ -83,3 +83,7 @@ h1 {
   margin: 10px 10px 10px 10px;
   color: rgb(221, 213, 213);
 }
+
+a {
+  text-decoration: none;
+}
