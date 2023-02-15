@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&family=Montserrat:wght@400;700&display=swap");
+
+.App {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header img {
+  width: 200px;
+}
+
+.responseData {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 98vw;
+  /* background-color: pink; */
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 650px;
+  margin: 10px 10px 10px 10px;
+  width: 400px;
+  /* background-color: rgb(200, 171, 176); */
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+}
+
+.card img {
+  height: 400px;
+  object-fit: cover;
+  margin: 8px 8px 20px 8px;
+  border-radius: 5px;
+}
+.card p,
+h1 {
+  text-align: justify;
+  margin: 10px 10px 10px 10px;
+}
