@@ -2,15 +2,22 @@
 
 .App {
   font-family: "IBM Plex Sans", sans-serif;
+  background-color: black;
 }
 h1 {
   font-size: 30px;
   font-weight: bold;
 }
+.header {
+  background-color: #fff;
+  height: 120px;
+}
 
 .header img {
   width: 200px;
 }
+
+/* partie page Characters ---------------------- */
 
 .responseData {
   display: flex;
@@ -21,9 +28,10 @@ h1 {
   margin: 0 auto;
 }
 
-.card {
+.charCard {
   display: flex;
   flex-direction: column;
+  color: rgb(221, 213, 213);
   justify-content: flex-start;
   height: 650px;
   margin: 10px 10px 10px 10px;
@@ -34,14 +42,38 @@ h1 {
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
 }
 
-.card img {
+.charCard img {
   height: 400px;
   object-fit: cover;
   margin: 8px 8px 20px 8px;
   border-radius: 5px;
 }
-.card p,
+.charCard p,
 h1 {
   text-align: justify;
   margin: 10px 10px 10px 10px;
+}
+
+/* partie page Comics ------------*/
+
+.responseDataComics {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 98vw;
+  background-color: pink;
+  margin: 0 auto;
+}
+.comiCard {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  justify-content: flex-start;
+  height: 750px;
+  margin: 10px 10px 10px 10px;
+  width: 400px;
+  /* background-color: rgb(200, 171, 176); */
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px;
 }
