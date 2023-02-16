@@ -24,7 +24,13 @@ const Header = () => {
         >
           Comics
         </button>
-        <button>My favorites</button>
+        <button
+          onClick={() => {
+            navigate("/myfavorites");
+          }}
+        >
+          My favorites
+        </button>
       </div>
     </div>
   );

@@ -12,7 +12,8 @@ const CharacCard = ({ character }) => {
           //link vers la page Comics liés au personnage: route /comics/:characterId
           //requete vers comics/${charId}?apiKey=${apiKey}
 
-          <article className="charCard" key={elem.id}>
+          <article className="charCard" key={index}>
+            {/* initialement key:elem.id mais pbm console each child should have a key */}
             {elem.thumbnail.path && (
               <img
                 //   pour afficher les imgs, méthodo doc API
@@ -26,12 +27,12 @@ const CharacCard = ({ character }) => {
               <button
                 className="favorite"
                 onClick={() => {
-                  Cookies.set("elemId", elem._id, { expires: 10 });
+                  Cookies.set("elemCharId", elem._id, { expires: 10 });
                 }}
               >
                 ♡
               </button>
-              <Link to={`/comics/${elem._id}`} key={index}>
+              <Link to={`/comics/${elem._id}`} key={elem.id}>
                 <button className="favorite1">see more</button>
               </Link>{" "}
             </div>

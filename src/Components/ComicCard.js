@@ -21,7 +21,7 @@ const ComicCard = ({ comics }) => {
                 className="favorite"
                 onClick={() => {
                   // on met dans les cookies elem._id et on le stock
-                  Cookies.set("elemId", elem._id, { expires: 10 });
+                  Cookies.set("elemComId", elem._id, { expires: 10 });
                 }}
               >
                 ♡
