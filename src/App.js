@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
+import ComicCharId from "./pages/ComicCharId";
+
 import { useState } from "react";
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
         <Header />
         <Routes>
           <Route
-            path="/characters"
+            path="/"
             element={
               <Characters
                 limit={limit}
@@ -34,6 +36,10 @@ function App() {
             element={
               <Comics limit={limit} skip={skip} title={title} apiKey={apiKey} />
             }
+          />
+          <Route
+            path="/comics/:characterId"
+            element={<ComicCharId apiKey={apiKey} />}
           />
         </Routes>
       </Router>

@@ -37,9 +37,7 @@ const Characters = ({ apiKey, limit, skip, title }) => {
         <p>En cours de chargement...</p>
       ) : (
         <div>
-          <Link>
-            <CharacCard character={character} />
-          </Link>
+          <CharacCard character={character} />
         </div>
       )}
     </div>
