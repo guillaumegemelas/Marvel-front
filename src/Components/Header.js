@@ -1,6 +1,8 @@
 import logo from "../img/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className="header">
       <div className="logo">
@@ -8,9 +10,21 @@ const Header = () => {
       </div>
 
       <div className="display">
-        {/* <input type="text" value="comics" />
-        <input type="text" value="personnages" />
-        <input type="text" value="favoris" /> */}
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Characters
+        </button>
+        <button
+          onClick={() => {
+            navigate("/comics");
+          }}
+        >
+          Comics
+        </button>
+        <button>favoris</button>
       </div>
     </div>
   );

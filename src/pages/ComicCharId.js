@@ -9,8 +9,8 @@ const ComicCharId = ({ apiKey }) => {
   const [isLoading, setIsloading] = useState(true);
 
   const { characterId } = useParams();
-  // console.log(charId); // revoie undefined
-  console.log(useParams()); //affiche {characterId: '5fcf91f6d8a2480017b91456'}
+  //bien nommer characterId comme dans la page App.js
+  //console.log(useParams()); //affiche {characterId: '5fcf91f6d8a2480017b91456'}
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,13 +33,38 @@ const ComicCharId = ({ apiKey }) => {
 
   return (
     <div className="charPage">
-      <div>vous etes sur la page ComicCharId</div>
       {isLoading ? (
         <p>En cours de chargement...</p>
       ) : (
-        <div>
-          <p>{comCharId.name}</p>
-          <p>{comCharId.title}</p>
+        <div
+          className="resultChar"
+          //   style={{
+          //     backgroundImage: `${comCharId.thumbnail.path}.${comCharId.thumbnail.extension}`,
+          //   }}
+        >
+          <div className="imgChar">
+            <img
+              //   pour afficher les imgs, méthodo doc API
+              src={`${comCharId.thumbnail.path}.${comCharId.thumbnail.extension}`}
+              alt=""
+            />
+          </div>
+
+          <h1>{comCharId.name}</h1>
+          <div className="titles">
+            <p>{comCharId.title}</p>
+            {/* il faut refaire un map pour lister les comics associés au perso */}
+            {comCharId.comics.map((detail) => {
+              const key = Object.keys(detail)[2];
+              //renvoie au nom des films qui concerne le character
+              console.log(detail[key]);
+              return (
+                <div>
+                  <p>{detail[key]}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

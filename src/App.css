@@ -16,13 +16,23 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: pink;
-  height: 120px;
+  background-color: black;
+  height: 150px;
+  margin-bottom: 20px;
 }
 
 .logo img {
   width: 200px;
   height: 80px;
+}
+
+.header button {
+  width: 150px;
+  height: 25px;
+  font-size: 17px;
+  color: white;
+  background-color: black;
+  border: none;
 }
 
 /* partie page Characters ------------------------------------------------------------- */
@@ -99,7 +109,45 @@ a {
 /* page charId---------------------------- */
 
 .charPage {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
   width: 100vw;
   height: 100vh;
-  background-color: lightgreen;
+  background-color: black;
+}
+
+.resultChar {
+  display: flex;
+  flex-direction: column;
+  color: rgb(221, 213, 213);
+  justify-content: flex-start;
+  height: 650px;
+  margin: 10px 10px 10px 10px;
+  width: 400px;
+  /* background-color: rgb(200, 171, 176); */
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+}
+
+.imgChar img {
+  height: 200px;
+  width: 383px;
+  object-fit: cover;
+  margin: 8px 8px 20px 8px;
+  border-radius: 5px;
+}
+
+.resultChar p,
+h1 {
+  text-align: justify;
+  margin: 6px 10px 6px 15px;
+}
+.titles {
+  height: 360px;
+  overflow-y: scroll;
+}
+.titles::-webkit-scrollbar {
+  display: none;
 }

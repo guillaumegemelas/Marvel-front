@@ -30,10 +30,6 @@ const Comics = ({ apiKey, limit, skip, title }) => {
 
   return (
     <div>
-      <div>
-        <h1>vous etes sur la page Comics</h1>
-      </div>
-
       {isLoading ? (
         <p>En cours de hargement</p>
       ) : (

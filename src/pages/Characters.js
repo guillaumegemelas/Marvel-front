@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import CharacCard from "../Components/CharacCard";
 
@@ -29,10 +29,6 @@ const Characters = ({ apiKey, limit, skip, title }) => {
 
   return (
     <div>
-      <div>
-        <h1>vous etes sur la page characters</h1>
-      </div>
-
       {isLoading ? (
         <p>En cours de chargement...</p>
       ) : (
