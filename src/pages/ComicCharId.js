@@ -8,16 +8,20 @@ const ComicCharId = ({ apiKey }) => {
   const [comCharId, setComCharId] = useState();
   const [isLoading, setIsloading] = useState(true);
 
-  const { charId } = useParams();
+  const { characterId } = useParams();
+  // console.log(charId); // revoie undefined
+  console.log(useParams()); //affiche {characterId: '5fcf91f6d8a2480017b91456'}
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-back--zqfvjrr4byql.code.run/comics/${charId}?apiKey=${apiKey}`
+          `https://site--marvel-back--zqfvjrr4byql.code.run/comics/${characterId}?apiKey=${apiKey}`
         );
+
         setComCharId(response.data);
         console.log(response.data);
+
         setIsloading(false);
       } catch (error) {
         console.log(error.message);
@@ -25,7 +29,7 @@ const ComicCharId = ({ apiKey }) => {
       }
     };
     fetchData();
-  }, [apiKey, charId]);
+  }, [apiKey, characterId]);
 
   return (
     <div className="charPage">
