@@ -5,7 +5,7 @@
   background-color: black;
 }
 h1 {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bold;
 }
 
@@ -19,6 +19,12 @@ h1 {
   background-color: black;
   height: 150px;
   margin-bottom: 60px;
+  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+}
+
+.header button:hover {
+  color: rgb(190, 188, 188);
+  /* text-shadow: 0px 10px 20px white; */
 }
 
 .logo img {
@@ -55,8 +61,8 @@ h1 {
   background-color: black;
   color: white;
   border: none;
-  border-bottom: 1px solid white;
-  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+  border-bottom: 1px solid rgb(190, 188, 188);
+  box-shadow: 0px 10px 25px -10px rgb(190, 188, 188);
 }
 .limit,
 .skip {
@@ -64,8 +70,8 @@ h1 {
   background-color: black;
   color: white;
   border: none;
-  border-bottom: 1px solid white;
-  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+  border-bottom: 1px solid rgb(190, 188, 188);
+  box-shadow: 0px 10px 25px -10px rgb(190, 188, 188);
 }
 
 .responseData {
@@ -93,7 +99,7 @@ h1 {
 }
 
 .charCard img {
-  height: 400px;
+  height: 350px;
   object-fit: cover;
   margin: 8px 8px 20px 8px;
   border-radius: 5px;
@@ -102,6 +108,10 @@ h1 {
 h1 {
   text-align: justify;
   margin: 10px 10px 10px 10px;
+}
+
+.charCard p {
+  height: 170px;
 }
 
 .isLoading {
@@ -149,6 +159,11 @@ h1 {
   display: none;
 }
 
+.comiCard img {
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
 .comiCard p,
 h1 {
   text-align: justify;
@@ -158,6 +173,22 @@ h1 {
 
 a {
   text-decoration: none;
+  color: aliceblue;
+}
+
+.fav {
+  display: flex;
+  width: 100%;
+  /* background-color: #fff; */
+  justify-content: flex-end;
+}
+.favorite {
+  color: beige;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  background-color: rgb(34, 34, 34);
+  margin: 0 10px 10px 0;
 }
 
 /* page charId---------------------------- */
@@ -199,9 +230,40 @@ h1 {
   margin: 6px 10px 6px 15px;
 }
 .titles {
-  height: 360px;
+  height: 330px;
   overflow-y: scroll;
 }
 .titles::-webkit-scrollbar {
   display: none;
+}
+
+/* Footer--------------------------------------------- */
+.footer {
+  display: flex;
+  justify-content: center;
+  color: azure;
+  align-items: center;
+  height: 100px;
+  width: 100vw;
+  background-color: black;
+  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+  margin-top: 40px;
+}
+
+.footer span {
+  font-weight: bold;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.footer button {
+  border: none;
+  color: aliceblue;
+  background-color: black;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.footer button:hover {
+  color: grey;
 }

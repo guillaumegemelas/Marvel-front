@@ -14,6 +14,9 @@ const ComicCard = ({ comics }) => {
             <div className="test">
               <p>{elem.description}</p>
             </div>
+            <div className="fav">
+              <button className="favorite">♡</button>
+            </div>
           </article>
         );
       })}

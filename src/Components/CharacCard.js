@@ -22,6 +22,9 @@ const CharacCard = ({ character }) => {
 
               <h1>{elem.name}</h1>
               <p>{elem.description}</p>
+              <div className="fav">
+                <button className="favorite">♡</button>
+              </div>
             </article>
           </Link>
         );
