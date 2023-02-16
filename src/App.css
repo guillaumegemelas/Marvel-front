@@ -30,6 +30,7 @@ h1 {
 .logo img {
   width: 200px;
   height: 80px;
+  box-shadow: 1px 1px 10px rgb(190, 188, 188);
 }
 
 .header button {
@@ -99,7 +100,7 @@ h1 {
 }
 
 .charCard img {
-  height: 350px;
+  height: 340px;
   object-fit: cover;
   margin: 8px 8px 20px 8px;
   border-radius: 5px;
@@ -180,7 +181,14 @@ a {
   display: flex;
   width: 100%;
   /* background-color: #fff; */
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+.fav1 {
+  display: flex;
+  width: 50%;
+  /* background-color: #fff; */
+  justify-content: center;
 }
 .favorite {
   color: beige;
@@ -188,7 +196,18 @@ a {
   font-weight: bold;
   border: none;
   background-color: rgb(34, 34, 34);
-  margin: 0 10px 10px 0;
+  margin: 0 10px 0 10px;
+}
+.favorite1 {
+  color: beige;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  background-color: rgb(34, 34, 34);
+  margin: 0 10px 0 10px;
+}
+.favorite1:hover {
+  color: grey;
 }
 
 /* page charId---------------------------- */

@@ -24,7 +24,7 @@ const Header = () => {
         >
           Comics
         </button>
-        <button>favoris</button>
+        <button>My favorites</button>
       </div>
     </div>
   );

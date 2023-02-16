@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 const ComicCard = ({ comics }) => {
   return (
     <div className="responseDataComics">
@@ -15,7 +17,15 @@ const ComicCard = ({ comics }) => {
               <p>{elem.description}</p>
             </div>
             <div className="fav">
-              <button className="favorite">♡</button>
+              <button
+                className="favorite"
+                onClick={() => {
+                  // on met dans les cookies elem._id et on le stock
+                  Cookies.set("elemId", elem._id, { expires: 10 });
+                }}
+              >
+                ♡
+              </button>
             </div>
           </article>
         );
