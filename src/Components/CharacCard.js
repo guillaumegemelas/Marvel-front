@@ -4,13 +4,13 @@ const CharacCard = ({ character }) => {
   return (
     <div className="responseData">
       {/* on map sur le response.data.results */}
-      {character.results.map((elem) => {
+      {character.results.map((elem, index) => {
         console.log(elem);
         console.log(elem._id);
         return (
           //link vers la page Comics liés au personnage: route /comics/:characterId
           //requete vers comics/${charId}?apiKey=${apiKey}
-          <Link to={`/comics/${elem._id}`}>
+          <Link to={`/comics/${elem._id}`} key={index}>
             <article className="charCard" key={elem.id}>
               {elem.thumbnail.path && (
                 <img

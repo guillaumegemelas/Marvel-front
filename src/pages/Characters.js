@@ -1,20 +1,24 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import CharacCard from "../Components/CharacCard";
 
 //page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?
-const Characters = ({ apiKey, limit, skip, title }) => {
+const Characters = () => {
   const [character, setCharacter] = useState();
   const [isLoading, setIsloading] = useState(true);
-  const navigate = useNavigate();
+  //   const navigate = useNavigate();
+  const [limit, setLimit] = useState("");
+  const [skip, setSkip] = useState("");
+  const [name, setName] = useState("");
+  //
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-back--zqfvjrr4byql.code.run/characters?apiKey=${apiKey}&limit=${limit}&skip=${skip}&title=${title}`
+          `https://site--marvel-back--zqfvjrr4byql.code.run/characters?apiKey=&name=${name}&limit=${limit}&skip=${skip}`
         );
         setCharacter(response.data);
         setIsloading(false);
@@ -25,10 +29,34 @@ const Characters = ({ apiKey, limit, skip, title }) => {
       }
     };
     fetchData();
-  }, [apiKey, title, limit, skip]);
+  }, [name, limit, skip]);
 
   return (
     <div>
+      <div className="searchBar">
+        <input
+          className="search"
+          type="text"
+          value={name}
+          placeholder="  Search"
+          onChange={(event) => setName(event.target.value)}
+        />
+        <input
+          className="limit"
+          type="text"
+          value={limit}
+          placeholder="  limit"
+          onChange={(event) => setLimit(event.target.value)}
+        />
+        <input
+          className="skip"
+          type="text"
+          value={skip}
+          placeholder="  skip"
+          onChange={(event) => setSkip(event.target.value)}
+        />
+      </div>
+
       {isLoading ? (
         <p>En cours de chargement...</p>
       ) : (

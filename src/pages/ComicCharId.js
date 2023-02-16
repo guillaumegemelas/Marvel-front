@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
-const ComicCharId = ({ apiKey }) => {
+const ComicCharId = () => {
   const [comCharId, setComCharId] = useState();
   const [isLoading, setIsloading] = useState(true);
 
@@ -16,7 +16,7 @@ const ComicCharId = ({ apiKey }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-back--zqfvjrr4byql.code.run/comics/${characterId}?apiKey=${apiKey}`
+          `https://site--marvel-back--zqfvjrr4byql.code.run/comics/${characterId}?apiKey=`
         );
 
         setComCharId(response.data);
@@ -29,7 +29,7 @@ const ComicCharId = ({ apiKey }) => {
       }
     };
     fetchData();
-  }, [apiKey, characterId]);
+  }, [characterId]);
 
   return (
     <div className="charPage">
@@ -54,12 +54,12 @@ const ComicCharId = ({ apiKey }) => {
           <div className="titles">
             <p>{comCharId.title}</p>
             {/* il faut refaire un map pour lister les comics associés au perso */}
-            {comCharId.comics.map((detail) => {
+            {comCharId.comics.map((detail, index) => {
               const key = Object.keys(detail)[2];
               //renvoie au nom des films qui concerne le character
-              console.log(detail[key]);
+              //   console.log(detail[key]);
               return (
-                <div>
+                <div key={index}>
                   <p>{detail[key]}</p>
                 </div>
               );

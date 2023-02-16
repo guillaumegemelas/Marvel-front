@@ -7,40 +7,15 @@ import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
 import ComicCharId from "./pages/ComicCharId";
 
-import { useState } from "react";
-
 function App() {
-  const [limit, setLimit] = useState("");
-  const [skip, setSkip] = useState("");
-  const [apiKey, setApiKey] = useState("");
-  const [title, setTitle] = useState("");
-
   return (
     <div className="App">
       <Router>
         <Header />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Characters
-                limit={limit}
-                skip={skip}
-                title={title}
-                apiKey={apiKey}
-              />
-            }
-          />
-          <Route
-            path="/comics"
-            element={
-              <Comics limit={limit} skip={skip} title={title} apiKey={apiKey} />
-            }
-          />
-          <Route
-            path="/comics/:characterId"
-            element={<ComicCharId apiKey={apiKey} />}
-          />
+          <Route path="/" element={<Characters />} />
+          <Route path="/comics" element={<Comics />} />
+          <Route path="/comics/:characterId" element={<ComicCharId />} />
         </Routes>
       </Router>
     </div>

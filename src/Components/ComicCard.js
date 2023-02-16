@@ -11,7 +11,9 @@ const ComicCard = ({ comics }) => {
               alt=""
             />
             <h1>{elem.title}</h1>
-            <p>{elem.description}</p>
+            <div className="test">
+              <p>{elem.description}</p>
+            </div>
           </article>
         );
       })}
