@@ -18,7 +18,7 @@ h1 {
   justify-content: space-around;
   background-color: black;
   height: 150px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .logo img {
@@ -43,16 +43,28 @@ h1 {
   width: 100%;
   gap: 50px;
   height: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
+
+.searchBar input {
+  padding-left: 2px;
+}
+
 .search {
   width: 250px;
-  background-color: #fff;
+  background-color: black;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
 }
 .limit,
 .skip {
   width: 50px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
 }
 
@@ -74,7 +86,7 @@ h1 {
   height: 650px;
   margin: 10px 10px 10px 10px;
   width: 400px;
-  /* background-color: rgb(200, 171, 176); */
+  background-color: rgb(34, 34, 34);
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
@@ -90,6 +102,18 @@ h1 {
 h1 {
   text-align: justify;
   margin: 10px 10px 10px 10px;
+}
+
+.isLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+.isLoading img {
+  height: 100px;
 }
 
 /* partie page Comics ------------*/
@@ -111,7 +135,7 @@ h1 {
   height: 870px;
   margin: 10px 10px 10px 10px;
   width: 400px;
-  /* background-color: rgb(200, 171, 176); */
+  background-color: rgb(34, 34, 34);
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);

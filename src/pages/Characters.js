@@ -45,20 +45,22 @@ const Characters = () => {
           className="limit"
           type="text"
           value={limit}
-          placeholder="  limit"
+          placeholder="  Limit"
           onChange={(event) => setLimit(event.target.value)}
         />
         <input
           className="skip"
           type="text"
           value={skip}
-          placeholder="  skip"
+          placeholder="  Skip"
           onChange={(event) => setSkip(event.target.value)}
         />
       </div>
 
       {isLoading ? (
-        <p>En cours de chargement...</p>
+        <div className="isLoading">
+          <p>En cours de chargement...</p>
+        </div>
       ) : (
         <div>
           <CharacCard character={character} />

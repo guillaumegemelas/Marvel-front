@@ -1,5 +1,6 @@
 //page qui fait une requete à "comics/${charId}?apiKey=${apiKey}""`
 import axios from "axios";
+
 import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
@@ -34,14 +35,10 @@ const ComicCharId = () => {
   return (
     <div className="charPage">
       {isLoading ? (
-        <p>En cours de chargement...</p>
+        // temps de chargement ok
+        <h1>chargement</h1>
       ) : (
-        <div
-          className="resultChar"
-          //   style={{
-          //     backgroundImage: `${comCharId.thumbnail.path}.${comCharId.thumbnail.extension}`,
-          //   }}
-        >
+        <div className="resultChar">
           <div className="imgChar">
             <img
               //   pour afficher les imgs, méthodo doc API

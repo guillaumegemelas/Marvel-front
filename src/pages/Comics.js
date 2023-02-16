@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+// import { useNavigate, Link } from "react-router-dom";
 
 import ComicCard from "../Components/ComicCard";
 
@@ -60,7 +60,9 @@ const Comics = () => {
       </div>
 
       {isLoading ? (
-        <p>En cours de hargement</p>
+        <div className="isLoading">
+          <p>En cours de chargement...</p>
+        </div>
       ) : (
         <div>
           <ComicCard comics={comics} />
