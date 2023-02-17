@@ -20,6 +20,11 @@ h1 {
   height: 150px;
   margin-bottom: 60px;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
+  /* ---modif suite header fixe---- */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 
 .header button:hover {
@@ -51,6 +56,9 @@ h1 {
   gap: 50px;
   height: 30px;
   margin-bottom: 30px;
+  /* ---modif suite header fixe------ */
+  margin-top: 150px;
+  padding-top: 25px;
 }
 
 .searchBar input {
@@ -219,6 +227,9 @@ a {
   width: 100vw;
   height: 100vh;
   background-color: black;
+  /* ---modif suite header fixe------ */
+  margin-top: 150px;
+  padding-top: 15px;
 }
 
 .resultChar {
