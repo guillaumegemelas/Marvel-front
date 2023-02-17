@@ -1,14 +1,37 @@
 import logo from "../img/logo.png";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ handleToken, token }) => {
   const navigate = useNavigate();
   return (
     <div className="header">
       <div className="logo">
         <img src={logo} alt="logo Marvel" />
       </div>
+      <div className="connecButton">
+        {token ? (
+          <button
+            className="but0"
+            style={{ color: "red" }}
+            onClick={() => {
+              handleToken(null);
+              navigate("/user/login");
+            }}
+          >
+            Se déconnecter
+          </button>
+        ) : (
+          <div>
+            <button className="but1" onClick={() => navigate("/user/signup")}>
+              Sign in
+            </button>
 
+            <button className="but2" onClick={() => navigate("/user/login")}>
+              Login
+            </button>
+          </div>
+        )}
+      </div>
       <div className="display">
         <button
           onClick={() => {

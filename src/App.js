@@ -1,5 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
+import { useState } from "react";
 
 //import des pages
 import Header from "./Components/Header";
@@ -11,16 +13,31 @@ import Favorites from "./pages/Favorites";
 import Signup from "./pages/Signup";
 
 function App() {
+  //
+  const [token, setToken] = useState(Cookies.get("token") || null);
+  const handleToken = (token) => {
+    if (token) {
+      setToken(token);
+      Cookies.set("token", token, { expires: 10 });
+    } else {
+      setToken(null);
+      Cookies.remove("token");
+    }
+  };
+  //
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header handleToken={handleToken} token={token} />
         <Routes>
           <Route path="/" element={<Characters />} />
           <Route path="/comics" element={<Comics />} />
           <Route path="/comics/:characterId" element={<ComicCharId />} />
           <Route path="/myfavorites" element={<Favorites />} />
-          <Route path="/user/signup" element={<Signup />} />
+          <Route
+            path="/user/signup"
+            element={<Signup handleToken={handleToken} />}
+          />
         </Routes>
         <Footer />
       </Router>

@@ -36,6 +36,7 @@ h1 {
   width: 200px;
   height: 80px;
   box-shadow: 1px 1px 10px rgb(190, 188, 188);
+  margin-top: 15px;
 }
 
 .header button {
@@ -45,6 +46,24 @@ h1 {
   color: white;
   background-color: black;
   border: none;
+}
+
+.display {
+  display: flex;
+  margin-bottom: 10px;
+}
+.connecButton {
+  display: flex;
+  justify-content: flex-end;
+  /* background-color: white; */
+  width: 100%;
+  margin-right: 100px;
+}
+.connecButton button {
+  border: 1px rgb(45, 45, 45) solid;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 15px;
 }
 
 /* partie page Characters ------------------------------------------------------------- */
@@ -301,6 +320,48 @@ h1 {
 /* page signup--------------------------------------------- */
 
 .signupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 150px;
-  padding-top: 25px;
+  padding-top: 125px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.formSign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 320px;
+  margin-top: 30px;
+}
+
+.formSign input {
+  height: 50px;
+  width: 270px;
+  font-size: 16px;
+  padding-left: 15px;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  background-color: black;
+}
+.formSign button {
+  height: 50px;
+  width: 290px;
+  font-size: 16px;
+  padding-left: 15px;
+  border: none;
+  color: black;
+  border: 1px solid white;
+  background-color: rgb(190, 188, 188);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.formSign button:hover {
+  background-color: #fff;
+  color: rgb(106, 105, 105);
 }

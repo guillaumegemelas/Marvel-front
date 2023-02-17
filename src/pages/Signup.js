@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(Cookies.get("token") || null);
-
   const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSignup = async () => {
     setErrorMessage("");
@@ -25,11 +25,8 @@ const Signup = () => {
       console.log(response.data);
 
       if (response.data.token) {
-        setToken(token);
-        Cookies.set("token", token, { expires: 10 });
-      } else {
-        setToken(null);
-        // Cookies.remove("token");
+        handleToken(response.data.token);
+        navigate("/");
       }
     } catch (error) {
       console.log(error.response.data, "erreur signup 🤕");
@@ -40,7 +37,7 @@ const Signup = () => {
       }
       if (error.response.data.message === "This username is already used") {
         setErrorMessage(
-          "Cet username est déjà utilisé, veuillez créer un compte avec un username valide"
+          "Ce nom d'utilisateur est déjà utilisé, veuillez créer un compte avec un nom d'utilisateur valide"
         );
       }
       if (error.response.data.message === "Missing parameter") {
@@ -51,7 +48,40 @@ const Signup = () => {
 
   return (
     <div className="signupForm">
-      <h1>hello you are on the signu up page</h1>
+      <h1>S'inscrire</h1>
+      <form
+        className="formSign"
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleSignup();
+        }}
+      >
+        <input
+          id="username"
+          value={username}
+          type="text"
+          placeholder="Nom d'utilisateur"
+          onChange={(event) => setUsername(event.target.value)}
+        />
+        <input
+          id="email"
+          value={email}
+          type="text"
+          placeholder="Email"
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <input
+          id="password"
+          value={password}
+          type="password"
+          placeholder="Password"
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <button className="inscriptionButton" type="submit">
+          S'inscrire
+        </button>
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      </form>
     </div>
   );
 };
