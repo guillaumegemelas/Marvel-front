@@ -7,7 +7,7 @@ const CharacCard = ({ character }) => {
       {/* on map sur le response.data.results */}
       {character.results.map((elem, index) => {
         console.log(elem);
-        console.log(elem._id);
+        // console.log(elem._id);
         return (
           //link vers la page Comics liés au personnage: route /comics/:characterId
           //requete vers comics/${charId}?apiKey=${apiKey}

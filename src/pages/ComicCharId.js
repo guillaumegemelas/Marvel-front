@@ -21,7 +21,7 @@ const ComicCharId = () => {
         );
 
         setComCharId(response.data);
-        console.log(response.data);
+        // console.log(response.data);
 
         setIsloading(false);
       } catch (error) {
