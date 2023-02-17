@@ -22,10 +22,11 @@ const Signup = ({ handleToken }) => {
           password: password,
         }
       );
-      console.log(response.data);
+      //   console.log(response.data);
 
       if (response.data.token) {
         handleToken(response.data.token);
+        alert("Votre compte est créé");
         navigate("/");
       }
     } catch (error) {
@@ -48,7 +49,10 @@ const Signup = ({ handleToken }) => {
 
   return (
     <div className="signupForm">
-      <h1>S'inscrire</h1>
+      <div className="h1form">
+        <h1>Sign up</h1>
+      </div>
+
       <form
         className="formSign"
         onSubmit={(event) => {
@@ -78,7 +82,7 @@ const Signup = ({ handleToken }) => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <button className="inscriptionButton" type="submit">
-          S'inscrire
+          Sign up
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       </form>

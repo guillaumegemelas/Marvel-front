@@ -12,18 +12,17 @@ const Header = ({ handleToken, token }) => {
         {token ? (
           <button
             className="but0"
-            style={{ color: "red" }}
             onClick={() => {
               handleToken(null);
               navigate("/user/login");
             }}
           >
-            Se déconnecter
+            Disconnect
           </button>
         ) : (
           <div>
             <button className="but1" onClick={() => navigate("/user/signup")}>
-              Sign in
+              Sign up
             </button>
 
             <button className="but2" onClick={() => navigate("/user/login")}>

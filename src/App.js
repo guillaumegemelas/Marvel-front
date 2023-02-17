@@ -11,6 +11,7 @@ import ComicCharId from "./pages/ComicCharId";
 import Footer from "./Components/Footer";
 import Favorites from "./pages/Favorites";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
   //
@@ -37,6 +38,10 @@ function App() {
           <Route
             path="/user/signup"
             element={<Signup handleToken={handleToken} />}
+          />
+          <Route
+            path="/user/login"
+            element={<Login handleToken={handleToken} />}
           />
         </Routes>
         <Footer />

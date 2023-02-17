@@ -31,6 +31,12 @@ h1 {
   color: rgb(190, 188, 188);
   /* text-shadow: 0px 10px 20px white; */
 }
+.connecButton .but0 {
+  color: red;
+}
+.connecButton .but0:hover {
+  color: rgb(232, 130, 130);
+}
 
 .logo img {
   width: 200px;
@@ -364,4 +370,7 @@ h1 {
 .formSign button:hover {
   background-color: #fff;
   color: rgb(106, 105, 105);
+}
+.h1form {
+  margin-right: 10px;
 }
