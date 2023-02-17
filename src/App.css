@@ -17,6 +17,8 @@ h1 {
   align-items: center;
   justify-content: space-around;
   background-color: black;
+
+  /* background-image: url("./img/background.jpg"); */
   height: 150px;
   margin-bottom: 60px;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
@@ -51,6 +53,7 @@ h1 {
   font-size: 17px;
   color: white;
   background-color: black;
+  /* opacity: 0.5; */
   border: none;
 }
 
