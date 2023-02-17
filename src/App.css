@@ -297,3 +297,10 @@ h1 {
 .footer button:hover {
   color: grey;
 }
+
+/* page signup--------------------------------------------- */
+
+.signupForm {
+  margin-top: 150px;
+  padding-top: 25px;
+}
