@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+//import pour tab et newTab
+import { useState } from "react";
 
 const CharacCard = ({ character }) => {
+  //test mise en favoris des characters: idée: remplir tableau vide et push dès qu'on clique
+  const [tab, setTab] = useState([]);
+
   return (
     <div className="responseData">
       {/* on map sur le response.data.results */}
       {character.results.map((elem, index) => {
-        console.log(elem);
         // console.log(elem._id);
         return (
           //link vers la page Comics liés au personnage: route /comics/:characterId
@@ -27,7 +31,11 @@ const CharacCard = ({ character }) => {
               <button
                 className="favorite"
                 onClick={() => {
-                  Cookies.set("elemCharId", elem._id, { expires: 10 });
+                  const newTab = [...tab];
+                  newTab.push(elem._id);
+                  setTab(newTab);
+
+                  Cookies.set("elemCharId", [newTab], { expires: 10 });
                 }}
               >
                 ♡

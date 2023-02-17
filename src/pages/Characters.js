@@ -57,6 +57,7 @@ const Characters = () => {
           placeholder="  Skip"
           onChange={(event) => setSkip(event.target.value)}
         />
+        {/* essai pagination---------------- */}
       </div>
 
       {isLoading ? (

@@ -1,20 +1,18 @@
 import Cookies from "js-cookie";
 
 const Favorites = () => {
+  //j'importe des cookie la chaine de caractère stockée et la transforme en tableau avec split()
+  const cookieChar = Cookies.get("elemCharId");
+  const cookieCom = Cookies.get("elemComId");
+  const tab1 = cookieChar.split(",");
+  console.log(tab1);
+  const tab2 = cookieCom.split(",");
+  console.log(tab2);
+
   return (
     <div className="charPage">
       <h1 style={{ color: "white" }}>you are on favorite page</h1>
-      <div>
-        {Cookies.get("elemCharId")}
-        {console.log(Cookies.get("elemCharId"))}
-        <p style={{ color: "white" }}>{Cookies.get("elemCharId")}</p>
-        {/* renvoie le cookie contenant l'id du perso mis en favoris */}
-        <p style={{ color: "white" }}>Favorites Comics</p>{" "}
-      </div>
-
-      <div>
-        <p style={{ color: "white" }}>Favorites Characters</p>{" "}
-      </div>
+      <div></div>
     </div>
   );
 };

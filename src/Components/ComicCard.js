@@ -1,10 +1,14 @@
 import Cookies from "js-cookie";
+//import pour tab et newTab
+import { useState } from "react";
 
 const ComicCard = ({ comics }) => {
+  //test mise en favoris des characters: idée: remplir tableau vide et push dès qu'on clique
+  const [tab, setTab] = useState([]);
+
   return (
     <div className="responseDataComics">
       {comics.results.map((elem) => {
-        console.log(elem);
         return (
           <article className="comiCard" key={elem._id}>
             <img
@@ -20,8 +24,11 @@ const ComicCard = ({ comics }) => {
               <button
                 className="favorite"
                 onClick={() => {
-                  // on met dans les cookies elem._id et on le stock
-                  Cookies.set("elemComId", elem._id, { expires: 10 });
+                  const newTab = [...tab];
+                  newTab.push(elem._id);
+                  setTab(newTab);
+
+                  Cookies.set("elemComId", [newTab], { expires: 10 });
                 }}
               >
                 ♡
