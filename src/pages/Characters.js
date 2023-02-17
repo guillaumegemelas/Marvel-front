@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 
 import CharacCard from "../Components/CharacCard";
 
@@ -8,11 +7,14 @@ import CharacCard from "../Components/CharacCard";
 const Characters = () => {
   const [character, setCharacter] = useState();
   const [isLoading, setIsloading] = useState(true);
-  //   const navigate = useNavigate();
+
   const [limit, setLimit] = useState("");
   const [skip, setSkip] = useState("");
   const [name, setName] = useState("");
   //
+  //pagination-------------------------------------------
+
+  //---------------------------------------------------
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +34,7 @@ const Characters = () => {
   }, [name, limit, skip]);
 
   return (
-    <div>
+    <div className="global">
       <div className="searchBar">
         <input
           className="search"
