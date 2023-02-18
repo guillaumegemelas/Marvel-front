@@ -74,6 +74,15 @@ h1 {
   margin-left: 15px;
 }
 
+/*homepage-------------------------------------------*/
+
+.homepage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 150px;
+}
+
 /* partie page Characters ------------------------------------------------------------- */
 
 .searchBar {

@@ -12,6 +12,7 @@ import Footer from "./Components/Footer";
 import Favorites from "./pages/Favorites";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Homepage from "./pages/Homepage";
 
 function App() {
   //
@@ -31,7 +32,8 @@ function App() {
       <Router>
         <Header handleToken={handleToken} token={token} />
         <Routes>
-          <Route path="/" element={<Characters />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/characters" element={<Characters />} />
           <Route path="/comics" element={<Comics />} />
           <Route path="/comics/:characterId" element={<ComicCharId />} />
           <Route path="/myfavorites" element={<Favorites />} />

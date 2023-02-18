@@ -6,7 +6,13 @@ const Header = ({ handleToken, token }) => {
   return (
     <div className="header">
       <div className="logo">
-        <img src={logo} alt="logo Marvel" />
+        <img
+          src={logo}
+          alt="logo Marvel"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
       </div>
       <div className="connecButton">
         {token ? (
@@ -34,7 +40,7 @@ const Header = ({ handleToken, token }) => {
       <div className="display">
         <button
           onClick={() => {
-            navigate("/");
+            navigate("/characters");
           }}
         >
           Characters
