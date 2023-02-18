@@ -1,4 +1,4 @@
-//page qui fait une requete à "comics/${charId}?apiKey=${apiKey}""`
+//page qui fait une requete à "comics/${charId}?
 import axios from "axios";
 
 import { useParams } from "react-router-dom";

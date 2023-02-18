@@ -16,8 +16,8 @@ const CharacCard = ({ character }) => {
           //link vers la page Comics liés au personnage: route /comics/:characterId
           //requete vers comics/${charId}?apiKey=${apiKey}
 
-          <article className="charCard" key={index}>
-            {/* initialement key:elem.id mais pbm console each child should have a key */}
+          <article className="charCard" key={elem.id}>
+            {/* initialement key:elem.id ou index mais pbm console each child should have a key */}
             {elem.thumbnail.path && (
               <img
                 //   pour afficher les imgs, méthodo doc API
