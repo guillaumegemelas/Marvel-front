@@ -49,12 +49,12 @@ const Favorites = () => {
             <h1 style={{ marginTop: "30px" }}>Favorites characters</h1>
             {tab1.map((elem1, index) => {
               return (
-                <div className=" favChar">
+                <div className=" favChar" key={index}>
                   {/* {elem1} */}
                   {/* {console.log(elem1, "map sur le tab des cookies")} */}
                   {character.results.map((elem, index) => {
                     return (
-                      <div>
+                      <div key={index}>
                         {elem._id === elem1 && (
                           <article className="charCard1" key={elem.id}>
                             <img
