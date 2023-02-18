@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
+import background from "../img/background.jpg";
 
 const ComicCharId = () => {
   const [comCharId, setComCharId] = useState();
@@ -39,13 +40,21 @@ const ComicCharId = () => {
         <h1>chargement</h1>
       ) : (
         <div className="resultChar">
-          <div className="imgChar">
+          {!comCharId.thumbnail.path.includes("image_not_available") ? (
+            <div className="imgChar">
+              <img
+                //   pour afficher les imgs, méthodo doc API
+                src={`${comCharId.thumbnail.path}.${comCharId.thumbnail.extension}`}
+                alt=""
+              />
+            </div>
+          ) : (
             <img
               //   pour afficher les imgs, méthodo doc API
-              src={`${comCharId.thumbnail.path}.${comCharId.thumbnail.extension}`}
-              alt=""
+              src={background}
+              alt="background img"
             />
-          </div>
+          )}
 
           <h1>{comCharId.name}</h1>
           <div className="titles">

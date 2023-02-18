@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 //import pour tab et newTab
 import { useState } from "react";
+import background1 from "../img/background1.jpg";
 
 const ComicCard = ({ comics }) => {
   //test mise en favoris des characters: idée: remplir tableau vide et push dès qu'on clique
@@ -11,11 +12,19 @@ const ComicCard = ({ comics }) => {
       {comics.results.map((elem) => {
         return (
           <article className="comiCard" key={elem._id}>
-            <img
-              //   pour afficher les imgs, méthodo doc API
-              src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
-              alt=""
-            />
+            {!elem.thumbnail.path.includes("image_not_available") ? (
+              <img
+                //   pour afficher les imgs, méthodo doc API
+                src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
+                alt=""
+              />
+            ) : (
+              <img
+                //   pour afficher les imgs, méthodo doc API
+                src={background1}
+                alt="background img"
+              />
+            )}
             <h1>{elem.title}</h1>
             <div className="test">
               <p>{elem.description}</p>
