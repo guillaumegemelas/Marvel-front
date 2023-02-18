@@ -8,11 +8,11 @@ import { useState, useEffect } from "react";
 const Favorites = () => {
   //j'importe des cookie la chaine de caractère stockée et la transforme en tableau avec split()
   const cookieChar = Cookies.get("elemCharId");
-  const cookieCom = Cookies.get("elemComId");
+  // const cookieCom = Cookies.get("elemComId");
   const tab1 = cookieChar.split(",");
   console.log(tab1);
-  const tab2 = cookieCom.split(",");
-  console.log(tab2);
+  // const tab2 = cookieCom.split(",");
+  console.log(cookieChar);
 
   //test requete-------------------------------------------
   const [character, setCharacter] = useState();
@@ -50,7 +50,6 @@ const Favorites = () => {
             {tab1.map((elem1, index) => {
               return (
                 <div className=" favChar" key={index}>
-                  {/* {elem1} */}
                   {/* {console.log(elem1, "map sur le tab des cookies")} */}
                   {character.results.map((elem, index) => {
                     return (

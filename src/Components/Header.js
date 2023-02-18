@@ -48,7 +48,12 @@ const Header = ({ handleToken, token }) => {
         </button>
         <button
           onClick={() => {
-            token ? navigate("/myfavorites") : navigate("/user/login");
+            token
+              ? // ? tab1.length === 0
+                //   ? alert("pas cool")
+                //   :
+                navigate("/myfavorites")
+              : navigate("/user/login");
           }}
         >
           My favorites
