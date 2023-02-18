@@ -7,6 +7,7 @@ import background from "../img/background.jpg";
 const CharacCard = ({ character }) => {
   //test mise en favoris des characters: idée: remplir tableau vide et push dès qu'on clique
   const [tab, setTab] = useState([]);
+  // const [clic, setClic] = useState(false);
 
   return (
     <div className="responseData">
@@ -14,9 +15,6 @@ const CharacCard = ({ character }) => {
       {character.results.map((elem, index) => {
         // console.log(elem);
         return (
-          //link vers la page Comics liés au personnage: route /comics/:characterId
-          //requete vers comics/${charId}?apiKey=${apiKey}
-
           <article className="charCard" key={index}>
             {/* initialement key:elem.id ou index mais pbm console each child should have a key */}
             {!elem.thumbnail.path.includes("image_not_available") ? (
@@ -35,9 +33,12 @@ const CharacCard = ({ character }) => {
             <h1>{elem.name}</h1>
             <p>{elem.description}</p>
             <div className="fav">
-              <button
+              <div
+                key={elem.id}
                 className="favorite"
+                // className={clic ? "favorite2" : "favorite"}
                 onClick={() => {
+                  // setClic(!clic);
                   const newTab = [...tab];
                   newTab.push(elem._id);
                   setTab(newTab);
@@ -45,7 +46,7 @@ const CharacCard = ({ character }) => {
                 }}
               >
                 ♡
-              </button>
+              </div>
               <Link to={`/comics/${elem._id}`} key={elem.id}>
                 <button className="favorite1">see more</button>
               </Link>{" "}

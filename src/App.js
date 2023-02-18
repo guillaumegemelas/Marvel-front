@@ -26,6 +26,7 @@ function App() {
       Cookies.remove("token");
     }
   };
+
   //
   return (
     <div className="App">
