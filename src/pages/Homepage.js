@@ -1,4 +1,4 @@
-import background3 from "../img/background3.jpg";
+import background3 from "../img/background3.png";
 const Homepage = () => {
   return (
     <div className="homepage1">

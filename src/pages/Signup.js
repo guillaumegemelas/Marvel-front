@@ -64,7 +64,7 @@ const Signup = ({ handleToken }) => {
           id="username"
           value={username}
           type="text"
-          placeholder="Nom d'utilisateur"
+          placeholder="Username"
           onChange={(event) => setUsername(event.target.value)}
         />
         <input
