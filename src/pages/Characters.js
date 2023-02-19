@@ -45,6 +45,7 @@ const Characters = () => {
           className="skip"
           type="number"
           min="1"
+          max="15"
           value={skip}
           placeholder="Page"
           onChange={(event) => setSkip(event.target.value)}
