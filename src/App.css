@@ -18,7 +18,7 @@ h1 {
   justify-content: space-around;
   background-color: black;
   /* background-image: url("./img/background.jpg"); */
-  height: 150px;
+  height: 155px;
   margin-bottom: 60px;
   box-shadow: 1px 1px 15px rgb(190, 188, 188);
   /* ---modif suite header fixe---- */
@@ -58,7 +58,7 @@ h1 {
 
 .display {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .connecButton {
   display: flex;
@@ -91,10 +91,16 @@ h1 {
   width: 100%;
   gap: 50px;
   height: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   /* ---modif suite header fixe------ */
-  margin-top: 150px;
+
   padding-top: 25px;
+}
+.bandeau {
+  margin-top: 150px;
+  width: 100vw;
+  height: 250px;
+  object-fit: cover;
 }
 
 .searchBar input {
@@ -315,6 +321,7 @@ h1 {
 .fovPage {
   display: flex;
   margin-top: 150px;
+  height: 100%;
   justify-content: center;
 }
 

@@ -9,7 +9,13 @@ const Favorites = () => {
   //j'importe des cookie la chaine de caractère stockée et la transforme en tableau avec split()
   const cookieChar = Cookies.get("elemCharId");
   // const cookieCom = Cookies.get("elemComId");
-  const tab1 = cookieChar.split(",");
+
+  //seul moyen pour éviter spli() sur undefined si pas de favoris au click sur favoris
+  let tab1;
+  if (cookieChar) {
+    tab1 = cookieChar.split(",");
+  } else tab1 = [];
+
   console.log(tab1);
   // const tab2 = cookieCom.split(",");
   console.log(cookieChar);

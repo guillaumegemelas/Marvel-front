@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import CharacCard from "../Components/CharacCard";
+import bandeau from "../img/bandeau.jpg";
 
 //page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?
 const Characters = () => {
@@ -30,6 +31,7 @@ const Characters = () => {
 
   return (
     <div className="global">
+      <img className="bandeau" src={bandeau} alt="" />
       <div className="searchBar">
         <input
           className="search"
@@ -48,7 +50,6 @@ const Characters = () => {
           onChange={(event) => setSkip(event.target.value)}
         />
       </div>
-
       {isLoading ? (
         <div className="isLoading">
           <p>En cours de chargement...</p>

@@ -36,9 +36,7 @@ const CharacCard = ({ character }) => {
               <div
                 key={elem.id}
                 className="favorite"
-                // className={clic ? "favorite2" : "favorite"}
                 onClick={() => {
-                  // setClic(!clic);
                   const newTab = [...tab];
                   newTab.push(elem._id);
                   setTab(newTab);

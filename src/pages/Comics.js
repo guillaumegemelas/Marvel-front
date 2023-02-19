@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 // import { useNavigate, Link } from "react-router-dom";
 
 import ComicCard from "../Components/ComicCard";
+import bandeauCom from "../img/bandeauCom.png";
 
 //page généraliste sur laquelle apparaissent tous les Comics Marvel par ordre
 //alphabétique, sous forme de fiches
@@ -33,6 +34,7 @@ const Comics = () => {
 
   return (
     <div>
+      <img className="bandeau" src={bandeauCom} alt="" />
       <div className="searchBar">
         <input
           className="search"
