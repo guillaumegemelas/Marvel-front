@@ -326,6 +326,13 @@ h1 {
 .fovPage {
   display: flex;
   margin-top: 150px;
+  height: 100vh;
+  justify-content: center;
+}
+
+.fovPage1 {
+  display: flex;
+  margin-top: 150px;
   height: 100%;
   justify-content: center;
 }
@@ -362,6 +369,7 @@ h1 {
 .charCard1 img {
   width: 50%;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 /* Footer--------------------------------------------- */

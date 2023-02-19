@@ -10,9 +10,8 @@ const ComicCharId = () => {
   const [comCharId, setComCharId] = useState();
   const [isLoading, setIsloading] = useState(true);
 
+  //characterId (Cf.page App.js)
   const { characterId } = useParams();
-  //bien nommer characterId comme dans la page App.js
-  //console.log(useParams()); //affiche {characterId: '5fcf91f6d8a2480017b91456'}
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,8 +21,6 @@ const ComicCharId = () => {
         );
 
         setComCharId(response.data);
-        // console.log(response.data);
-
         setIsloading(false);
       } catch (error) {
         console.log(error.message);
@@ -36,7 +33,6 @@ const ComicCharId = () => {
   return (
     <div className="charPage">
       {isLoading ? (
-        // temps de chargement ok
         <h1>chargement</h1>
       ) : (
         <div className="resultChar">
@@ -49,11 +45,7 @@ const ComicCharId = () => {
               />
             </div>
           ) : (
-            <img
-              //   pour afficher les imgs, méthodo doc API
-              src={background}
-              alt="background img"
-            />
+            <img src={background} alt="background img" />
           )}
 
           <h1>{comCharId.name}</h1>
@@ -62,8 +54,7 @@ const ComicCharId = () => {
             {/* il faut refaire un map pour lister les comics associés au perso */}
             {comCharId.comics.map((detail, index) => {
               const key = Object.keys(detail)[2];
-              //renvoie au nom des films qui concerne le character
-              //   console.log(detail[key]);
+
               return (
                 <div key={index}>
                   <p>{detail[key]}</p>

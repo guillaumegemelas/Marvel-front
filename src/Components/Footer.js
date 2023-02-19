@@ -1,5 +1,3 @@
-// import { useNavigate } from "react-router-dom";
-
 const Footer = () => {
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noreferrer");

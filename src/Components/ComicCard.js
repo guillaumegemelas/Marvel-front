@@ -1,10 +1,9 @@
 import Cookies from "js-cookie";
-//import pour tab et newTab
-import { useState } from "react";
 import background1 from "../img/background1.jpg";
+import { useState } from "react";
 
 const ComicCard = ({ comics }) => {
-  //test mise en favoris des characters: idée: remplir tableau vide et push dès qu'on clique
+  //Mise en favoris des characters: remplir tableau vide et push dès qu'on clique
   const [tab, setTab] = useState([]);
 
   return (
@@ -19,11 +18,7 @@ const ComicCard = ({ comics }) => {
                 alt=""
               />
             ) : (
-              <img
-                //   pour afficher les imgs, méthodo doc API
-                src={background1}
-                alt="background img"
-              />
+              <img src={background1} alt="background img" />
             )}
             <h1>{elem.title}</h1>
             <div className="test">
@@ -36,7 +31,6 @@ const ComicCard = ({ comics }) => {
                   const newTab = [...tab];
                   newTab.push(elem._id);
                   setTab(newTab);
-
                   Cookies.set("elemComId", [newTab], { expires: 10 });
                 }}
               >

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -20,7 +19,6 @@ const Login = ({ handleToken }) => {
           password: password,
         }
       );
-
       console.log(response.data);
 
       if (response.data.token) {
@@ -64,7 +62,7 @@ const Login = ({ handleToken }) => {
           onChange={(event) => setPassword(event.target.value)}
         />
         <button className="inscriptionButton" type="submit">
-          Log in
+          Login
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
       </form>

@@ -15,7 +15,6 @@ import Login from "./pages/Login";
 import Homepage from "./pages/Homepage";
 
 function App() {
-  //
   const [token, setToken] = useState(Cookies.get("token") || null);
   const handleToken = (token) => {
     if (token) {
@@ -27,7 +26,6 @@ function App() {
     }
   };
 
-  //
   return (
     <div className="App">
       <Router>

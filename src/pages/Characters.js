@@ -4,11 +4,10 @@ import { useState, useEffect } from "react";
 import CharacCard from "../Components/CharacCard";
 import bandeau from "../img/bandeau.jpg";
 
-//page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?
+//Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?
 const Characters = () => {
   const [character, setCharacter] = useState();
   const [isLoading, setIsloading] = useState(true);
-
   const [skip, setSkip] = useState("");
   const [name, setName] = useState("");
 
@@ -20,7 +19,6 @@ const Characters = () => {
         );
         setCharacter(response.data);
         setIsloading(false);
-        // console.log(response.data);
       } catch (error) {
         console.log(error.message);
         console.log(error.response);
