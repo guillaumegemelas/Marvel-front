@@ -33,7 +33,7 @@ const CharacCard = ({ character }) => {
             <h1>{elem.name}</h1>
             <p>{elem.description}</p>
             <div className="fav">
-              <div
+              <button
                 key={elem.id}
                 className="favorite"
                 onClick={() => {
@@ -44,7 +44,7 @@ const CharacCard = ({ character }) => {
                 }}
               >
                 ♡
-              </div>
+              </button>
               <Link to={`/comics/${elem._id}`} key={elem.id}>
                 <button className="favorite1">see more</button>
               </Link>{" "}

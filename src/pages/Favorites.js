@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 //test requete------------------
 import axios from "axios";
 import { useState, useEffect } from "react";
+import background from "../img/background.jpg";
 
 //-------------------------------
 
@@ -62,11 +63,21 @@ const Favorites = () => {
                       <div key={index}>
                         {elem._id === elem1 && (
                           <article className="charCard1" key={elem.id}>
-                            <img
-                              //   pour afficher les imgs, méthodo doc API
-                              src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
-                              alt=""
-                            />
+                            {!elem.thumbnail.path.includes(
+                              "image_not_available"
+                            ) ? (
+                              <img
+                                //   pour afficher les imgs, méthodo doc API
+                                src={`${elem.thumbnail.path}.${elem.thumbnail.extension}`}
+                                alt=""
+                              />
+                            ) : (
+                              <img
+                                //   pour afficher les imgs, méthodo doc API
+                                src={background}
+                                alt="background img"
+                              />
+                            )}
                             <div className="favDescr">
                               <h1>{elem.name}</h1>
                               <p>{elem.description}</p>
