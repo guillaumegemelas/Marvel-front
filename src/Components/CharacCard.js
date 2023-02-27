@@ -33,7 +33,9 @@ const CharacCard = ({ character }) => {
                   if (newTab.indexOf(elem._id) === -1) {
                     newTab.push(elem._id);
                     setTab(newTab);
-                    Cookies.set("elemCharId", newTab, { expires: 10 });
+                    Cookies.set("elemCharId", JSON.stringify(newTab), {
+                      expires: 10,
+                    });
                   }
                 }}
               >
