@@ -6,14 +6,11 @@ import background from "../img/background.jpg";
 const Favorites = () => {
   //j'importe des cookie la chaine de caractère stockée et la transforme en tableau avec split()
   const cookieChar = Cookies.get("elemCharId");
-  console.log(cookieChar);
 
   //Eviter split() sur undefined si pas de favoris au clique sur favoris
   let tab1;
   if (cookieChar) {
-    tab1 = JSON.parse(cookieChar);
-    console.log(tab1);
-    // tab1 = cookieChar.split(",");
+    tab1 = cookieChar.split(",");
   } else tab1 = [];
 
   const [character, setCharacter] = useState();
