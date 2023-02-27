@@ -46,6 +46,7 @@ const Favorites = () => {
               return (
                 <div className=" favChar" key={index}>
                   {character.results.map((elem, index) => {
+                    // console.log(elem._id);
                     return (
                       <div key={index}>
                         {elem._id === elem1 && (
@@ -67,6 +68,8 @@ const Favorites = () => {
                           </article>
                         )}
                       </div>
+                      //il faudra créer un bouton pour retirer les éléments des favoris
+                      //puis ajouter les comics en favoris
                     );
                   })}
                 </div>

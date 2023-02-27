@@ -4,7 +4,7 @@ import { useState } from "react";
 import background from "../img/background.jpg";
 
 const CharacCard = ({ character }) => {
-  const [tab, setTab] = useState([]);
+  const [tab, setTab] = useState([Cookies.get("elemCharId")]);
 
   return (
     <div className="responseData">
@@ -28,16 +28,21 @@ const CharacCard = ({ character }) => {
                 className="favorite"
                 onClick={() => {
                   const newTab = [...tab];
-                  newTab.push(elem._id);
-                  setTab(newTab);
-                  Cookies.set("elemCharId", [newTab], { expires: 10 });
+                  console.log(newTab);
+
+                  if (newTab.indexOf(elem._id) === -1) {
+                    newTab.push(elem._id);
+                    setTab(newTab);
+                    Cookies.set("elemCharId", newTab, { expires: 10 });
+                  }
                 }}
               >
                 ♡
               </button>
+
               <Link to={`/comics/${elem._id}`} key={elem.id}>
                 <button className="favorite1">▷</button>
-              </Link>{" "}
+              </Link>
             </div>
           </article>
         );

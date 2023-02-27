@@ -326,7 +326,7 @@ h1 {
 .fovPage {
   display: flex;
   margin-top: 150px;
-  height: 100vh;
+  height: 100%;
   justify-content: center;
 }
 
@@ -339,6 +339,7 @@ h1 {
 
 .favChar {
   display: flex;
+
   justify-content: center;
   width: 1400px;
 }
@@ -454,3 +455,8 @@ h1 {
 .h1form {
   margin-right: 10px;
 }
+
+/* test */
+/* .display1 {
+  display: none;
+} */
