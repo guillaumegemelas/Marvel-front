@@ -581,8 +581,8 @@ h1 {
   }
 
   .logo img {
-    width: 150px;
-    height: 50px;
+    width: 130px;
+    height: 40px;
     box-shadow: 1px 1px 10px rgb(190, 188, 188);
     margin-top: 15px;
   }
@@ -591,7 +591,7 @@ h1 {
     justify-content: flex-end;
     /* background-color: white; */
     width: 100%;
-    margin-right: 100px;
+    margin-right: 50px;
   }
   .connecButton button {
     border: 1px rgb(45, 45, 45) solid;
@@ -649,5 +649,14 @@ h1 {
     margin-top: 20px;
     margin-bottom: 30px;
     font-size: 18px;
+  }
+  .connecButton .but0 {
+    width: 80px;
+  }
+  .connecButton .but1 {
+    width: 70px;
+  }
+  .connecButton .but2 {
+    width: 70px;
   }
 }
