@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import background from "../img/background.jpg";
+import background1 from "../img/background1.jpg";
 
 const ComicCharId = () => {
   const [comCharId, setComCharId] = useState();
@@ -21,6 +22,7 @@ const ComicCharId = () => {
         );
 
         setComCharId(response.data);
+        console.log(response.data);
         setIsloading(false);
       } catch (error) {
         console.log(error.message);
@@ -35,32 +37,47 @@ const ComicCharId = () => {
       {isLoading ? (
         <h1>chargement</h1>
       ) : (
-        <div className="resultChar">
-          {!comCharId.thumbnail.path.includes("image_not_available") ? (
-            <div className="imgChar">
-              <img
-                //   pour afficher les imgs, méthodo doc API
-                src={`${comCharId.thumbnail.path}.${comCharId.thumbnail.extension}`}
-                alt=""
-              />
-            </div>
-          ) : (
-            <img src={background} alt="background img" />
-          )}
-
-          <h1>{comCharId.name}</h1>
-          <div className="titles">
-            <p>{comCharId.title}</p>
-            {/* il faut refaire un map pour lister les comics associés au perso */}
-            {comCharId.comics.map((detail, index) => {
-              const key = Object.keys(detail)[2];
-
-              return (
-                <div key={index}>
-                  <p>{detail[key]}</p>
+        <div className="test1">
+          <div className="containerChar">
+            <div className="resultChar">
+              {!comCharId.thumbnail.path.includes("image_not_available") ? (
+                <div className="imgChar">
+                  <img
+                    //   pour afficher les imgs, méthodo doc API
+                    src={`${comCharId.thumbnail.path}.${comCharId.thumbnail.extension}`}
+                    alt=""
+                  />
                 </div>
-              );
-            })}
+              ) : (
+                <img src={background} alt="background img" />
+              )}
+
+              <h1>{comCharId.name}</h1>
+              <div className="titles">
+                <p>{comCharId.title}</p>
+              </div>
+            </div>
+          </div>
+          <div className="resultsComics">
+            <h1>Comics with {comCharId.name}</h1>
+            {/* il faut refaire un map pour lister les comics associés au perso */}
+            <div className="comicTodisplay">
+              {comCharId.comics.map((detail, index) => {
+                return (
+                  <div key={index} className="comicUnity">
+                    {!detail.thumbnail.path.includes("image_not_available") ? (
+                      <img
+                        //   pour afficher les imgs, méthodo doc API
+                        src={`${detail.thumbnail.path}.${detail.thumbnail.extension}`}
+                        alt=""
+                      />
+                    ) : (
+                      <img src={background1} alt="background img" />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}
