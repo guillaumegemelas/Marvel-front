@@ -511,7 +511,105 @@ h1 {
   margin-right: 10px;
 }
 
-/* test */
-/* .display1 {
-  display: none;
-} */
+/* media queries partie responsive ----------------------------------------------------*/
+
+@media (max-width: 1150px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: yellow; */
+    /* background-image: url("./img/background.jpg"); */
+    height: 155px;
+    margin-bottom: 60px;
+    box-shadow: 1px 1px 15px rgb(190, 188, 188);
+    /* ---modif suite header fixe---- */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .logo img {
+    width: 180px;
+    height: 60px;
+    box-shadow: 1px 1px 10px rgb(190, 188, 188);
+    margin-top: 15px;
+  }
+  .connecButton {
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: white; */
+    width: 100%;
+    margin-right: 100px;
+  }
+  .connecButton button {
+    border: 1px rgb(45, 45, 45) solid;
+    height: 20px;
+    font-size: 14px;
+    border-bottom: 1px solid red;
+    border-radius: 5px;
+    margin-left: 15px;
+  }
+  .display button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 630px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: pink; */
+    /* background-image: url("./img/background.jpg"); */
+    height: 155px;
+    margin-bottom: 60px;
+    box-shadow: 1px 1px 15px rgb(190, 188, 188);
+    /* ---modif suite header fixe---- */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .logo img {
+    width: 150px;
+    height: 50px;
+    box-shadow: 1px 1px 10px rgb(190, 188, 188);
+    margin-top: 15px;
+  }
+  .connecButton {
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: white; */
+    width: 100%;
+    margin-right: 100px;
+  }
+  .connecButton button {
+    border: 1px rgb(45, 45, 45) solid;
+    height: 20px;
+    font-size: 12px;
+    border-bottom: 1px solid red;
+    border-radius: 5px;
+    margin-left: 15px;
+  }
+  .display button {
+    font-size: 15px;
+  }
+  .favCard {
+    margin: 25px 0 25px 25px;
+    height: 390px;
+    width: 300px;
+    box-shadow: 1px 1px 15px rgb(190, 188, 188);
+    border-radius: 5px;
+  }
+  .favCard img {
+    height: 350px;
+    width: 300px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}

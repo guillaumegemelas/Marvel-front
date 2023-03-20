@@ -3,6 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 // import background from "../img/background.jpg";
 
+//import pour messages erreurs perso
+import toast, { Toaster } from "react-hot-toast";
+
 const Favorites = ({ token }) => {
   //j'importe des cookie la chaine de caractère stockée et la transforme en tableau avec split()
   // const cookieChar = Cookies.get("elemCharId");
@@ -26,7 +29,9 @@ const Favorites = ({ token }) => {
   useEffect(() => {
     const fetchFavourites = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/favourites`);
+        const response = await axios.get(
+          `https://site--marvel-back--zqfvjrr4byql.code.run/favourites`
+        );
         setCharacter(response.data);
         console.log(response.data);
         setIsloading(false);
@@ -41,7 +46,9 @@ const Favorites = ({ token }) => {
   useEffect(() => {
     const fetchFavouritesCom = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/favouritescom`);
+        const response = await axios.get(
+          `https://site--marvel-back--zqfvjrr4byql.code.run/favouritescom`
+        );
         setComics(response.data);
         console.log(response.data);
         setIsloading1(false);
@@ -62,6 +69,9 @@ const Favorites = ({ token }) => {
           </div>
         ) : (
           <div className="favouriteContainer">
+            <div>
+              <Toaster position="bottom-right" reverseOrder={false} />
+            </div>
             <div className="favouriteContainer1">
               <h1>Favorites characters</h1>
               <div className="favCard0">
@@ -78,11 +88,14 @@ const Favorites = ({ token }) => {
                               onClick={async () => {
                                 try {
                                   const response = await axios.delete(
-                                    `http://localhost:3000/favourites/delete/${even._id}`
+                                    `https://site--marvel-back--zqfvjrr4byql.code.run/favourites/delete/${even._id}`
                                   );
                                   setCharacter(response.data);
                                   console.log(response.data.favourites);
-                                  alert("favourite deleted");
+                                  toast.success("Favourites deleted!", {
+                                    duration: 3000,
+                                    icon: "✅",
+                                  });
                                 } catch (error) {
                                   console.log(
                                     error.response,
@@ -126,11 +139,14 @@ const Favorites = ({ token }) => {
                               onClick={async () => {
                                 try {
                                   const response = await axios.delete(
-                                    `http://localhost:3000/favouritescom/delete/${item._id}`
+                                    `https://site--marvel-back--zqfvjrr4byql.code.run/favouritescom/delete/${item._id}`
                                   );
                                   setComics(response.data);
                                   // console.log(response.data);
-                                  alert("favourite deleted");
+                                  toast.success("Favourites deleted!", {
+                                    duration: 3000,
+                                    icon: "✅",
+                                  });
                                 } catch (error) {
                                   console.log(
                                     error.response,

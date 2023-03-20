@@ -1,7 +1,7 @@
 // A FAIRE
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
@@ -23,6 +23,7 @@ const Login = ({ handleToken }) => {
 
       if (response.data.token) {
         handleToken(response.data.token);
+
         navigate("/");
       }
     } catch (error) {
@@ -65,6 +66,9 @@ const Login = ({ handleToken }) => {
           Login
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        <Link to={"/user/signup"}>
+          <p>No account, please sign up</p>
+        </Link>
       </form>
     </div>
   );

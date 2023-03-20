@@ -3,6 +3,8 @@ import background1 from "../img/background1.jpg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { useState } from "react";
+//import pour messages erreurs perso
+import toast, { Toaster } from "react-hot-toast";
 
 const ComicCard = ({ comics, token }) => {
   //Mise en favoris des characters: remplir tableau vide et push dès qu'on clique
@@ -12,6 +14,9 @@ const ComicCard = ({ comics, token }) => {
 
   return (
     <div className="responseDataComics">
+      <div>
+        <Toaster position="top-center" reverseOrder={false} />
+      </div>
       {comics.results.map((elem) => {
         return (
           <article className="comiCard" key={elem._id}>
@@ -36,20 +41,26 @@ const ComicCard = ({ comics, token }) => {
                   if (token) {
                     try {
                       const response = await axios.post(
-                        "http://localhost:3000/addfavouritescom",
+                        "https://site--marvel-back--zqfvjrr4byql.code.run/addfavouritescom",
                         {
                           image: `${elem.thumbnail.path}.${elem.thumbnail.extension}`,
                           token: token,
                         }
                       );
-                      alert("Added to Favourites");
+                      toast.success("Added to Favourites!", {
+                        duration: 3000,
+                        icon: "👏",
+                      });
                       console.log(response.data);
                     } catch (error) {
                       console.log(error.message);
                       if (
                         error.message === "Request failed with status code 409"
                       ) {
-                        alert("Favourites already added");
+                        toast.error("Already added to Favourites!", {
+                          duration: 3000,
+                          icon: "⚠️",
+                        });
                       }
                     }
                   } else {

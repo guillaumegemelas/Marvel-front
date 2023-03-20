@@ -5,6 +5,9 @@ import axios from "axios";
 // import { useState } from "react";
 import background from "../img/background.jpg";
 
+//import pour messages erreurs perso
+import toast, { Toaster } from "react-hot-toast";
+
 const CharacCard = ({ character, token }) => {
   // const [tab, setTab] = useState([Cookies.get("elemCharId")]);
   console.log(token);
@@ -13,6 +16,9 @@ const CharacCard = ({ character, token }) => {
 
   return (
     <div className="responseData">
+      <div>
+        <Toaster position="top-center" reverseOrder={false} />
+      </div>
       {character.results.map((elem, index) => {
         return (
           <article className="charCard" key={index}>
@@ -36,21 +42,28 @@ const CharacCard = ({ character, token }) => {
                   if (token) {
                     try {
                       const response = await axios.post(
-                        "http://localhost:3000/addfavouritescharc",
+                        "https://site--marvel-back--zqfvjrr4byql.code.run/addfavouritescharc",
                         {
                           name: elem.name,
                           image: `${elem.thumbnail.path}.${elem.thumbnail.extension}`,
                           token: token,
                         }
                       );
-                      alert("Added to Favourites");
+                      // alert("Added to Favourites");
+                      toast.success("Added to Favourites!", {
+                        duration: 3000,
+                        icon: "👏",
+                      });
                       console.log(response.data);
                     } catch (error) {
                       console.log(error.message);
                       if (
                         error.message === "Request failed with status code 409"
                       ) {
-                        alert("Favourites already added");
+                        toast.error("Already added to Favourites!", {
+                          duration: 3000,
+                          icon: "⚠️",
+                        });
                       }
                     }
                   } else {
