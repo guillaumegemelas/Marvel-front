@@ -618,4 +618,36 @@ h1 {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
+
+  .resultChar {
+    display: flex;
+    flex-direction: column;
+    color: rgb(221, 213, 213);
+    justify-content: flex-start;
+    height: 350px;
+    margin: 60px 10px 80px 10px;
+    width: 450px;
+    /* background-color: rgb(200, 171, 176); */
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px rgb(183, 123, 123);
+  }
+
+  .imgChar img {
+    height: 250px;
+    width: 350px;
+    object-fit: cover;
+    margin: 8px 8px 20px 8px;
+    border-radius: 5px;
+  }
+  .resultChar h1 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .resultsComics h1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+  }
 }
