@@ -88,6 +88,7 @@ h1 {
 .searchBar {
   display: flex;
   justify-content: center;
+  margin-top: 150px;
   width: 100%;
   gap: 50px;
   height: 30px;
@@ -322,12 +323,12 @@ a {
 }
 .resultsComics img {
   height: 300px;
+  width: 200px;
 }
 .comicTodisplay {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 .comicUnity {
   margin: 15px 15px 15px;
@@ -357,52 +358,74 @@ h1 {
 /*Favorites------------------------------------------*/
 .fovPage {
   display: flex;
+  flex-direction: column;
   margin-top: 150px;
   height: 100%;
   justify-content: center;
 }
-
-.fovPage1 {
+.favouriteContainer {
   display: flex;
-  margin-top: 150px;
-  height: 100%;
-  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
 }
-
-.favChar {
+.favouriteContainer1 {
   display: flex;
-
-  justify-content: center;
-  width: 1400px;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 80vw;
+  min-height: 50vh;
+  /* background-color: yellow; */
+}
+.favCard0 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  /* background-color: #fff; */
+}
+.favouriteContainer h1 {
+  line-height: 40px;
+  border-bottom: 1px solid red;
 }
 
-.favDescr {
-  margin: 20px 0 0 30px;
+.favCard {
+  margin: 25px 0 25px 25px;
+  height: 390px;
+  width: 250px;
+  box-shadow: 1px 1px 15px rgb(190, 188, 188);
+  border-radius: 5px;
 }
-
+.favCard img {
+  height: 350px;
+  width: 250px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.favCard p {
+  color: #fff;
+  margin: 0 0 0 10px;
+}
 .favDescr p {
   margin-left: 10px;
   margin-top: 30px;
-}
-
-.charCard1 {
-  display: flex;
-  flex-direction: row;
-  color: rgb(221, 213, 213);
-  justify-content: flex-start;
-  height: 500px;
-  margin: 10px 10px 20px 10px;
-  width: 1000px;
-  background-color: rgb(34, 34, 34);
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 1px 1px 15px rgb(190, 188, 188);
 }
 
 .charCard1 img {
   width: 50%;
   object-fit: cover;
   border-radius: 5px;
+}
+.underSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.underSection button {
+  background-color: black;
+  color: red;
+  font-size: 25px;
+  border: none;
 }
 
 /* Footer--------------------------------------------- */

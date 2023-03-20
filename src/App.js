@@ -32,10 +32,10 @@ function App() {
         <Header handleToken={handleToken} token={token} />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/characters" element={<Characters />} />
-          <Route path="/comics" element={<Comics />} />
+          <Route path="/characters" element={<Characters token={token} />} />
+          <Route path="/comics" element={<Comics token={token} />} />
           <Route path="/comics/:characterId" element={<ComicCharId />} />
-          <Route path="/myfavorites" element={<Favorites />} />
+          <Route path="/myfavorites" element={<Favorites token={token} />} />
           <Route
             path="/user/signup"
             element={<Signup handleToken={handleToken} />}

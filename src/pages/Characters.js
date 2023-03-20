@@ -2,14 +2,19 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 import CharacCard from "../Components/CharacCard";
-import bandeau from "../img/bandeau.jpg";
+// import bandeau from "../img/bandeau.jpg";
 
 //Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?
-const Characters = () => {
+const Characters = ({ token }) => {
   const [character, setCharacter] = useState();
   const [isLoading, setIsloading] = useState(true);
   const [skip, setSkip] = useState("");
   const [name, setName] = useState("");
+
+  //useEffect pour se positionner en haut de la page en venant de charachter page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +34,7 @@ const Characters = () => {
 
   return (
     <div className="global">
-      <img className="bandeau" src={bandeau} alt="" />
+      {/* <img className="bandeau" src={bandeau} alt="" /> */}
       <div className="searchBar">
         <input
           className="search"
@@ -55,7 +60,7 @@ const Characters = () => {
         </div>
       ) : (
         <div>
-          <CharacCard character={character} />
+          <CharacCard character={character} token={token} />
         </div>
       )}
     </div>

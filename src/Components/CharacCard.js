@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// import Cookies from "js-cookie";
+// import { useState } from "react";
 import background from "../img/background.jpg";
 
-const CharacCard = ({ character }) => {
-  const [tab, setTab] = useState([Cookies.get("elemCharId")]);
+const CharacCard = ({ character, token }) => {
+  // const [tab, setTab] = useState([Cookies.get("elemCharId")]);
+  console.log(token);
+
+  const navigate = useNavigate();
 
   return (
     <div className="responseData">
@@ -26,14 +31,38 @@ const CharacCard = ({ character }) => {
               <button
                 key={elem.id}
                 className="favorite"
-                onClick={() => {
-                  const newTab = [...tab];
-
-                  if (newTab.indexOf(elem._id) === -1) {
-                    newTab.push(elem._id);
-                    setTab(newTab);
-                    Cookies.set("elemCharId", [newTab], { expires: 10 });
+                onClick={async () => {
+                  // ajout des favoris en BDD ave requete au backend
+                  if (token) {
+                    try {
+                      const response = await axios.post(
+                        "http://localhost:3000/addfavouritescharc",
+                        {
+                          name: elem.name,
+                          image: `${elem.thumbnail.path}.${elem.thumbnail.extension}`,
+                          token: token,
+                        }
+                      );
+                      alert("Added to Favourites");
+                      console.log(response.data);
+                    } catch (error) {
+                      console.log(error.message);
+                      if (
+                        error.message === "Request failed with status code 409"
+                      ) {
+                        alert("Favourites already added");
+                      }
+                    }
+                  } else {
+                    navigate("/user/login");
                   }
+                  // ajout des favoris avec méthode des Cookies
+                  //                   const newTab = [...tab];
+                  //                   if (newTab.indexOf(elem._id) === -1) {
+                  //                     newTab.push(elem._id);
+                  //                     setTab(newTab);
+                  //                     Cookies.set("elemCharId", [newTab], { expires: 10 });
+                  //                   }
                 }}
               >
                 ♡

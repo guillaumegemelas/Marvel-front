@@ -1,13 +1,18 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ComicCard from "../Components/ComicCard";
-import bandeauCom from "../img/bandeauCom.png";
+// import bandeauCom from "../img/bandeauCom.png";
 
-const Comics = () => {
+const Comics = ({ token }) => {
   const [comics, setComics] = useState();
   const [isLoading, setIsloading] = useState(true);
   const [title, setTitle] = useState("");
   const [skip, setSkip] = useState("");
+
+  //useEffect pour se positionner en haut de la page en venant de charachter page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +32,7 @@ const Comics = () => {
 
   return (
     <div>
-      <img className="bandeau" src={bandeauCom} alt="" />
+      {/* <img className="bandeau" src={bandeauCom} alt="" /> */}
       <div className="searchBar">
         <input
           className="search"
@@ -53,7 +58,7 @@ const Comics = () => {
         </div>
       ) : (
         <div>
-          <ComicCard comics={comics} />
+          <ComicCard comics={comics} token={token} />
         </div>
       )}
     </div>
