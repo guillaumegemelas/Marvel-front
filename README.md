@@ -58,7 +58,7 @@ You can click on the ♡ to add a comic to favorite
 
 ### Favorites page
 
-you can click on `My favorites` in the navbar on the top of the page to go to your favorites page.
+you can click on `My favorites` in the navbar on the top of the page to go to your favorites page. You can also remove a favorite from this page.
 
 <img width="1705" alt="favorites" src="https://user-images.githubusercontent.com/121306549/229090023-e29842de-e4b9-4f2d-accf-03f0d81fe67d.png">
 
