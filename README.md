@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Let start!
 
-to reinstall node_modules, please run:
+To reinstall node_modules, please run:
 
 ### `yarn`
 
