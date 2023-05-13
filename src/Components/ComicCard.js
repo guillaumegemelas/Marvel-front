@@ -7,7 +7,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const ComicCard = ({ comics, token }) => {
-  //Mise en favoris des characters: remplir tableau vide et push dès qu'on clique
+  //Mise en favoris des characters:: remplir tableau vide et push dès qu'on clique
   // const [tab, setTab] = useState([]);
 
   const navigate = useNavigate();
