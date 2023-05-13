@@ -21,7 +21,7 @@ const Favorites = ({ token }) => {
   const [isLoading, setIsloading] = useState(true);
   const [isLoading1, setIsloading1] = useState(true);
 
-  //useEffect pour se positionner en haut de la page en venant de charachter page
+  //---useEffect pour se positionner en haut de la page en venant de charachter page
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
