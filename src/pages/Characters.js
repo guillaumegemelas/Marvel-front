@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import CharacCard from "../Components/CharacCard";
 // import bandeau from "../img/bandeau.jpg";
 
-//Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?
+//Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?---
 const Characters = ({ token }) => {
   const [character, setCharacter] = useState();
   const [isLoading, setIsloading] = useState(true);
