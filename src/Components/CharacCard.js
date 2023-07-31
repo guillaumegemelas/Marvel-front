@@ -10,7 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const CharacCard = ({ character, token }) => {
   // const [tab, setTab] = useState([Cookies.get("elemCharId")]);
-  console.log(token);
+  console.log(token, "log token");
 
   const navigate = useNavigate();
 

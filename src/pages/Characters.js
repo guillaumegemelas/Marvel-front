@@ -17,19 +17,41 @@ const Characters = ({ token }) => {
   }, []);
 
   useEffect(() => {
+    //test Abortcontroller---------------
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    //-----------------------------------
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-back--zqfvjrr4byql.code.run/characters?apiKey=&name=${name}&skip=${skip}`
+          `https://site--marvel-back--zqfvjrr4byql.code.run/characters?apiKey=&name=${name}&skip=${skip}`,
+          {
+            //-----------------
+            cancelToken: signal.token,
+            //-----------------
+          }
         );
         setCharacter(response.data);
         setIsloading(false);
       } catch (error) {
+        //-----------------
+        if (axios.isCancel(error)) {
+          console.log("Request cancelled:", error.message);
+        } else {
+          console.error("error fetching data:", error);
+        }
+        //-----------------
         console.log(error.message);
         console.log(error.response);
       }
     };
     fetchData();
+    //-----------------
+    return () => {
+      abortController.abort();
+    };
+    //-----------------
   }, [name, skip]);
 
   return (
