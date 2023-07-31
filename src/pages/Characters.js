@@ -18,6 +18,7 @@ const Characters = ({ token }) => {
 
   useEffect(() => {
     //test Abortcontroller---------------
+    // pour annuler la requête en cours lorsque le composant est démonté. Cela permet d'éviter d'afficher des résultats obsolètes ou de rencontrer des problèmes lorsque la réponse arrive après que le composant a été démonté.
     const abortController = new AbortController();
     const signal = abortController.signal;
     //-----------------------------------
@@ -58,23 +59,28 @@ const Characters = ({ token }) => {
     <div className="global">
       {/* <img className="bandeau" src={bandeau} alt="" /> */}
       <div className="searchBar">
-        <input
-          className="search"
-          type="text"
-          value={name}
-          placeholder="  Search"
-          onChange={(event) => setName(event.target.value)}
-        />
-
-        <input
-          className="skip"
-          type="number"
-          min="1"
-          max="15"
-          value={skip}
-          placeholder="Page"
-          onChange={(event) => setSkip(event.target.value)}
-        />
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <input
+            className="search"
+            type="text"
+            value={name}
+            placeholder="  Search"
+            onChange={(event) => setName(event.target.value)}
+          />
+          <input
+            className="skip"
+            type="number"
+            min="1"
+            max="15"
+            value={skip}
+            placeholder="Page"
+            onChange={(event) => setSkip(event.target.value)}
+          />
+        </form>
       </div>
       {isLoading ? (
         <div className="isLoading">

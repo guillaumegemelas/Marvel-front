@@ -20,21 +20,35 @@ const ComicCharId = () => {
   }, []);
 
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-back--zqfvjrr4byql.code.run/comics/${characterId}?apiKey=`
+          `https://site--marvel-back--zqfvjrr4byql.code.run/comics/${characterId}?apiKey=`,
+          {
+            cancelToken: signal.token,
+          }
         );
-
         setComCharId(response.data);
         console.log(response.data);
         setIsloading(false);
       } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log("Request cancelled:", error.message);
+        } else {
+          console.error("error fetching data:", error);
+        }
         console.log(error.message);
         console.log(error.response);
       }
     };
     fetchData();
+
+    return () => {
+      abortController.abort();
+    };
   }, [characterId]);
 
   return (

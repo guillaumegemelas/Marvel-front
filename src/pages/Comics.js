@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import ComicCard from "../Components/ComicCard";
 // import bandeauCom from "../img/bandeauCom.png";
 
@@ -14,22 +14,37 @@ const Comics = ({ token }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const fetchData = useCallback(async () => {
-    try {
-      const response = await axios.get(
-        `https://site--marvel-back--zqfvjrr4byql.code.run/comics?apiKey=&skip=${skip}&title=${title}`
-      );
-      setComics(response.data);
-      setIsloading(false);
-    } catch (error) {
-      console.log(error.message);
-      console.log(error.response);
-    }
-  }, [skip, title]);
-
   useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://site--marvel-back--zqfvjrr4byql.code.run/comics?apiKey=&skip=${skip}&title=${title}`,
+          {
+            cancelToken: signal.token,
+          }
+        );
+        setComics(response.data);
+        setIsloading(false);
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log("Request cancelled:", error.message);
+        } else {
+          console.error("error fetching data:", error);
+        }
+
+        console.log(error.message);
+        console.log(error.response);
+      }
+    };
     fetchData();
-  }, [fetchData]);
+
+    return () => {
+      abortController.abort();
+    };
+  }, [title, skip]);
 
   return (
     <div>
@@ -38,26 +53,25 @@ const Comics = ({ token }) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            fetchData();
           }}
-        ></form>
-        <input
-          className="search"
-          type="text"
-          value={title}
-          placeholder="  Search"
-          onChange={(event) => setTitle(event.target.value)}
-        />
-        <input
-          className="skip"
-          type="number"
-          min="1"
-          max="15"
-          value={skip}
-          placeholder="Page"
-          onChange={(event) => setSkip(event.target.value)}
-        />
-        <button type="submit">Rechercher</button>
+        >
+          <input
+            className="search"
+            type="text"
+            value={title}
+            placeholder="  Search"
+            onChange={(event) => setTitle(event.target.value)}
+          />
+          <input
+            className="skip"
+            type="number"
+            min="1"
+            max="15"
+            value={skip}
+            placeholder="Page"
+            onChange={(event) => setSkip(event.target.value)}
+          />
+        </form>
       </div>
 
       {isLoading ? (
