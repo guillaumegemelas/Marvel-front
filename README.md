@@ -14,7 +14,7 @@ In the project directory, you can run:
 
 ## Deployment
 
-This project (Front-End) is deployed with Netlify. You can find it: https://gamepad-gems.netlify.app
+This project (Front-End) is deployed with Netlify. You can find it: [https://gamepad-gems.netlify.app](https://marvel-gg.netlify.app)
 
 ## How does it works
 
