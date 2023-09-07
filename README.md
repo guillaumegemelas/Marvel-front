@@ -20,7 +20,6 @@ This project (Front-End) is deployed with Netlify. You can find it: https://marv
 
 You arrive directly on the home page and you are not yet logged
 
-
 <img width="1702" alt="home" src="https://user-images.githubusercontent.com/121306549/229087364-34b5efc3-705c-4b84-8b2e-02526e789314.png">
 
 You can click : on the top, in the navbar:
