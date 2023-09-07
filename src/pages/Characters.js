@@ -34,6 +34,7 @@ const Characters = ({ token }) => {
           }
         );
         setCharacter(response.data);
+        console.log(response.data, "log character");
         setIsloading(false);
       } catch (error) {
         //-----------------
