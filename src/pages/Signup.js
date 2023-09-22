@@ -10,7 +10,8 @@ const Signup = ({ handleToken }) => {
 
   const navigate = useNavigate();
 
-  const handleSignup = async () => {
+  const handleSignup = async (event) => {
+    event.preventDefault();
     setErrorMessage("");
 
     try {
@@ -52,13 +53,14 @@ const Signup = ({ handleToken }) => {
         <h1>Sign up</h1>
       </div>
 
-      <form
+      <form className="formSign" onSubmit={handleSignup}>
+        {/* équivalent à */}
+        {/* <form
         className="formSign"
-        onSubmit={(event) => {
-          event.preventDefault();
-          handleSignup();
+        onSubmit={(e) => {
+          handleSignup(e);
         }}
-      >
+      > */}
         <input
           id="username"
           value={username}
