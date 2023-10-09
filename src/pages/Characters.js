@@ -60,7 +60,7 @@ const Characters = ({ token }) => {
     };
 
     //Utilisation de la fonction de debounce instancié à 1 seconde
-    const debounceFetchData = debounce(fetchData, 1000);
+    const debounceFetchData = debounce(fetchData, 800);
 
     debounceFetchData();
 
