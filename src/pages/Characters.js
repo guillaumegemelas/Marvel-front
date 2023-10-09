@@ -16,6 +16,16 @@ const Characters = ({ token }) => {
     window.scrollTo(0, 0);
   }, []);
 
+  const debounce = (func, wait) => {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func.apply(this, args);
+      }, wait);
+    };
+  };
+
   useEffect(() => {
     //test Abortcontroller---------------
     // pour annuler la requête en cours lorsque le composant est démonté. Cela permet d'éviter d'afficher des résultats obsolètes ou de rencontrer des problèmes lorsque la réponse arrive après que le composant a été démonté.
@@ -48,7 +58,12 @@ const Characters = ({ token }) => {
         console.log(error.response);
       }
     };
-    fetchData();
+
+    //Utilisation de la fonction de debounce instancié à 1 seconde
+    const debounceFetchData = debounce(fetchData, 1000);
+
+    debounceFetchData();
+
     //-----------------
     return () => {
       abortController.abort();

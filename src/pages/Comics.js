@@ -14,6 +14,16 @@ const Comics = ({ token }) => {
     window.scrollTo(0, 0);
   }, []);
 
+  const debounce = (func, wait) => {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func.apply(this, args);
+      }, wait);
+    };
+  };
+
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
@@ -39,7 +49,11 @@ const Comics = ({ token }) => {
         console.log(error.response);
       }
     };
-    fetchData();
+
+    //Utilisation de la fonction de debounce instancié à 1 seconde
+    const debounceFetchData = debounce(fetchData, 800);
+
+    debounceFetchData();
 
     return () => {
       abortController.abort();
