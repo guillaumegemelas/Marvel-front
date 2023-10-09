@@ -1,7 +1,9 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ComicCard from "../Components/ComicCard";
 // import bandeauCom from "../img/bandeauCom.png";
+
+import { useDebounce } from "../Hooks/useDebounce";
 
 const Comics = ({ token }) => {
   const [comics, setComics] = useState();
@@ -14,51 +16,37 @@ const Comics = ({ token }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const debounce = (func, wait) => {
-    let timeout;
-    return function (...args) {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        func.apply(this, args);
-      }, wait);
-    };
-  };
+  //abortController:
+  const abortController = useMemo(() => new AbortController(), []);
+  const signal = abortController.signal;
+
+  const debouncedRequestComics = useDebounce(async () => {
+    try {
+      const response = await axios.get(
+        `https://site--marvel-back--zqfvjrr4byql.code.run/comics?apiKey=&skip=${skip}&title=${title}`,
+        {
+          cancelToken: signal.token,
+        }
+      );
+      setComics(response.data);
+      setIsloading(false);
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        console.log("Request cancelled:", error.message);
+      } else {
+        console.error("error fetching data:", error);
+      }
+      console.log(error.message);
+      console.log(error.response);
+    }
+  });
 
   useEffect(() => {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://site--marvel-back--zqfvjrr4byql.code.run/comics?apiKey=&skip=${skip}&title=${title}`,
-          {
-            cancelToken: signal.token,
-          }
-        );
-        setComics(response.data);
-        setIsloading(false);
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log("Request cancelled:", error.message);
-        } else {
-          console.error("error fetching data:", error);
-        }
-
-        console.log(error.message);
-        console.log(error.response);
-      }
-    };
-
-    //Utilisation de la fonction de debounce instancié à 1 seconde
-    const debounceFetchData = debounce(fetchData, 800);
-
-    debounceFetchData();
-
+    debouncedRequestComics();
     return () => {
       abortController.abort();
     };
-  }, [title, skip]);
+  }, [title, skip, abortController, debouncedRequestComics]);
 
   return (
     <div>
@@ -67,6 +55,8 @@ const Comics = ({ token }) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            // Pas besoins d'appeler la focntion car j'ai mis dans le useEffect l'ecoute des changements du titre
+            // debouncedRequestComics();
           }}
         >
           <input

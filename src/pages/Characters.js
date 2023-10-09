@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import CharacCard from "../Components/CharacCard";
-// import bandeau from "../img/bandeau.jpg";
+import { useDebounce } from "../Hooks/useDebounce";
 
 //Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?---
 const Characters = ({ token }) => {
@@ -16,64 +16,44 @@ const Characters = ({ token }) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const debounce = (func, wait) => {
-    let timeout;
-    return function (...args) {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        func.apply(this, args);
-      }, wait);
-    };
-  };
+  //abortController:
+  const abortController = useMemo(() => new AbortController(), []);
+  const signal = abortController.signal;
+
+  //requete avec debounce:
+  const debouncedRequest = useDebounce(async () => {
+    try {
+      const response = await axios.get(
+        `https://site--marvel-back--zqfvjrr4byql.code.run/characters?apiKey=&name=${name}&skip=${skip}`,
+        {
+          cancelToken: signal.token,
+        }
+      );
+      setCharacter(response.data);
+      console.log(response.data, "log character");
+      setIsloading(false);
+    } catch (error) {
+      //-----------------
+      if (axios.isCancel(error)) {
+        console.log("Request cancelled:", error.message);
+      } else {
+        console.error("error fetching data:", error);
+      }
+      //-----------------
+      console.log(error.message);
+      console.log(error.response);
+    }
+  });
 
   useEffect(() => {
-    //test Abortcontroller---------------
-    // pour annuler la requête en cours lorsque le composant est démonté. Cela permet d'éviter d'afficher des résultats obsolètes ou de rencontrer des problèmes lorsque la réponse arrive après que le composant a été démonté.
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-    //-----------------------------------
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://site--marvel-back--zqfvjrr4byql.code.run/characters?apiKey=&name=${name}&skip=${skip}`,
-          {
-            //-----------------
-            cancelToken: signal.token,
-            //-----------------
-          }
-        );
-        setCharacter(response.data);
-        console.log(response.data, "log character");
-        setIsloading(false);
-      } catch (error) {
-        //-----------------
-        if (axios.isCancel(error)) {
-          console.log("Request cancelled:", error.message);
-        } else {
-          console.error("error fetching data:", error);
-        }
-        //-----------------
-        console.log(error.message);
-        console.log(error.response);
-      }
-    };
-
-    //Utilisation de la fonction de debounce instancié à 1 seconde
-    const debounceFetchData = debounce(fetchData, 800);
-
-    debounceFetchData();
-
-    //-----------------
+    debouncedRequest();
     return () => {
       abortController.abort();
     };
-    //-----------------
-  }, [name, skip]);
+  }, [name, skip, abortController, debouncedRequest]);
 
   return (
     <div className="global">
-      {/* <img className="bandeau" src={bandeau} alt="" /> */}
       <div className="searchBar">
         <form
           onSubmit={(e) => {
@@ -85,7 +65,10 @@ const Characters = ({ token }) => {
             type="text"
             value={name}
             placeholder="  Search"
-            onChange={(event) => setName(event.target.value)}
+            onChange={(event) => {
+              setName(event.target.value);
+              debouncedRequest();
+            }}
           />
           <input
             className="skip"
