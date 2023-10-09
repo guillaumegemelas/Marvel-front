@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import CharacCard from "../Components/CharacCard";
 import { useDebounce } from "../Hooks/useDebounce";
 
-//Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?---
+//Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?-----
 const Characters = ({ token }) => {
   const [character, setCharacter] = useState();
   const [isLoading, setIsloading] = useState(true);
