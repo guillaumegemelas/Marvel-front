@@ -57,3 +57,5 @@ you can click on `My favorites` in the navbar on the top of the page to go to yo
 <img width="1705" alt="favorites" src="https://user-images.githubusercontent.com/121306549/229090023-e29842de-e4b9-4f2d-accf-03f0d81fe67d.png">
 
 If you want to log out, just click on `Disconnect`.
+
+
