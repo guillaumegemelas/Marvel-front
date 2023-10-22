@@ -79,7 +79,7 @@ const ComicCharId = () => {
           </div>
           <div className="resultsComics">
             <h1>Comics with {comCharId.name}</h1>
-            {/* il faut refaire un map pour lister les comics associés au perso */}
+            {/* il faut refaire un map pour lister les comics associés au perso! */}
             <div className="comicTodisplay">
               {comCharId.comics.map((detail, index) => {
                 return (
