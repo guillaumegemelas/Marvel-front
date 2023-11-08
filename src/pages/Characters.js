@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
 
 import CharacCard from "../Components/CharacCard";
+import Loader from "../Components/Loader";
 import { useDebounce } from "../Hooks/useDebounce";
 
 //Page généraliste sur laquelle apparaîssent tous les personnages par fiche: /characters?-----
@@ -83,7 +84,7 @@ const Characters = ({ token }) => {
       </div>
       {isLoading ? (
         <div className="isLoading">
-          <p>En cours de chargement...</p>
+          <Loader />
         </div>
       ) : (
         <div>

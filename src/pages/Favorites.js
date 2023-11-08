@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 //import pour messages erreurs perso
 import toast, { Toaster } from "react-hot-toast";
+import Loader from "../Components/Loader";
 
 const Favorites = ({ token }) => {
   //j'importe des cookie la chaine de caractère stockée et la transforme en tableau avec split()
@@ -65,7 +66,7 @@ const Favorites = ({ token }) => {
       <div>
         {isLoading ? (
           <div className="isLoading">
-            <p>En cours de chargement...</p>
+            <Loader />
           </div>
         ) : (
           <div className="favouriteContainer">
@@ -120,7 +121,7 @@ const Favorites = ({ token }) => {
       <div>
         {isLoading1 ? (
           <div className="isLoading">
-            <p>En cours de chargement...</p>
+            <Loader />
           </div>
         ) : (
           <div className="favouriteContainer">

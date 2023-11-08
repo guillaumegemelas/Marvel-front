@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect, useMemo } from "react";
 import ComicCard from "../Components/ComicCard";
+import Loader from "../Components/Loader";
 // import bandeauCom from "../img/bandeauCom.png";
 
 import { useDebounce } from "../Hooks/useDebounce";
@@ -80,7 +81,7 @@ const Comics = ({ token }) => {
 
       {isLoading ? (
         <div className="isLoading">
-          <p>En cours de chargement...</p>
+          <Loader />
         </div>
       ) : (
         <div>
