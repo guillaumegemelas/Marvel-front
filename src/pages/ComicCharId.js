@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import background from "../img/background.jpg";
 import background1 from "../img/background1.jpg";
+import Loader from "../Components/Loader";
 
 const ComicCharId = () => {
   const [comCharId, setComCharId] = useState();
@@ -54,7 +55,7 @@ const ComicCharId = () => {
   return (
     <div className="charPage">
       {isLoading ? (
-        <h1>chargement</h1>
+        <Loader />
       ) : (
         <div className="test1">
           <div className="containerChar">

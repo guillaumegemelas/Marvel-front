@@ -13,13 +13,6 @@ const Footer = () => {
         >
           Guillaume GEMELAS
         </button>
-        at
-        <button
-          role="link"
-          onClick={() => openInNewTab("https://www.lereacteur.io")}
-        >
-          Le Reacteur
-        </button>
       </p>
     </div>
   );
